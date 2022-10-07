@@ -1,5 +1,5 @@
 '''python3.9.13 ; absolute value ; version 2.0
-Ali Naim ; 10/6/2022
+Ali Naim ; 10/7/2022
 '''
 
 #input absolute value and output interval / inequation form

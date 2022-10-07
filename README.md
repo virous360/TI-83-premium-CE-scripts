@@ -4,7 +4,6 @@
 
 ### working on
 
-- inequ < check input
 - saturate input / validate
 - Better english
 - clean up code
