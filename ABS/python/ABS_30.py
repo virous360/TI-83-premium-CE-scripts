@@ -136,7 +136,7 @@ def interval_to_abs():
     except :
         print("error code : 1")
         exit()
-    if int(opp) <= 0 or int(opp) >= 5:
+    if opp <= 0 or opp >= 5:
         print("error code : 4")
         exit()
     # input 
