@@ -127,8 +127,7 @@ def interval_to_abs():
     opp = input("""
 1. x ]*1;*2[
 2. x [*1;*2]
-3. x ]-inf;*1[U]*2;+inf[2
-
+3. x ]-inf;*1[U]*2;+inf[
 4. x ]-inf;*1]U[*2;+inf[
 """)
     try :

@@ -117,7 +117,7 @@ void ineq_to_abs(){
 void interval_to_abs(){
     //input opperator (syntax)
     int opp;
-    opp = stoi(input("1. x ]*1;*2[\n2. x [*1;*2]\n3. x ]-inf;*1[U]*2;+inf[2\n4. x ]-inf;*1]U[*2;+inf[\n"));
+    opp = stoi(input("1. x ]*1;*2[\n2. x [*1;*2]\n3. x ]-inf;*1[U]*2;+inf[\n4. x ]-inf;*1]U[*2;+inf[\n"));
     if (opp <= 0 or opp >= 5){
         error(4);
     }
