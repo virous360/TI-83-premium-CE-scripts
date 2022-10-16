@@ -2,7 +2,7 @@
 
 ## ABS.py
 
-### error codes
+### error codes (abs.py)
 
 - 0 : cant convert input "c" to int (incorrect input)
 - 1 : cant convert input "opp" to int (incorrect input)
@@ -14,3 +14,11 @@
 - 7 : cmr > cpr (logical error in input : invalid)
 - 8 : cant convert input "main1" to int
 - 9 : main1 chosen is not between 1 and 3
+
+## VEC.py
+
+### error codes (vec.py)
+
+- 0 : input is not int
+- 1 : menu input not between 1,4
+- 2 : menu 1 > inp not between 1,4
