@@ -69,15 +69,15 @@ void abs_to_interval_ineq(){
 void ineq_to_abs(){
     //choose a syntax for the ineqation (int check + [1,4])
     int opp;
-    opp = stoi(input("1. *1 < x < *2\n2. *1 <= x <= *2\n3. x < *1 et x > *2\n4. x <= *1 et x >= *2\n"));
-    if (opp <= 0 or opp >= 5){
+    opp = stoi(input("1. *1 < x < *2\n2. *1 <= x <= *2\n3. x < *1 et x > *2\n4. x <= *1 et x >= *2\n5. x > *1\n6. x < *1\n7. x >= *1\n8. x <= *1\n"));
+    if (opp <= 0 or opp >= 9){
         error(4);
     }
     // *1 represents c - r and *2 represents c + r
     int cmr_i = stoi(input("*1 = "));
     int cpr_i = stoi(input("*2 = "));
     // if cmr > cpr than the inequation is wrong
-    if (cmr_i > cpr_i){
+    if (cmr_i > cpr_i and opp < 5){
         error(7);
     }
     // (c + r) + (c - r) = 2c ; Ans/2 = c ... r = c+r - c 
@@ -112,13 +112,21 @@ void ineq_to_abs(){
     } else if ( opp == 4 ){ 
         print("x ]-inf;"+cmr+"]U["+cpr+";+inf[\n");
         print("|x - "+ c + "| >= " + r + "\n");
+    } else if ( opp == 5 ){
+        print("x ]" + cmr + ", +inf[\n");
+    } else if ( opp == 6 ){
+        print("x ]-inf," + cmr + "[\n");
+    } else if ( opp == 7 ){
+        print("x [" + cmr + ", +inf[\n");
+    } else if ( opp == 8 ){
+        print("x ]-inf," + cmr + "]\n");
     }
 }
 void interval_to_abs(){
     //input opperator (syntax)
     int opp;
-    opp = stoi(input("1. x ]*1;*2[\n2. x [*1;*2]\n3. x ]-inf;*1[U]*2;+inf[\n4. x ]-inf;*1]U[*2;+inf[\n"));
-    if (opp <= 0 or opp >= 5){
+    opp = stoi(input("1. x ]*1;*2[\n2. x [*1;*2]\n3. x ]-inf;*1[U]*2;+inf[\n4. x ]-inf;*1]U[*2;+inf[\n5. x ]-inf,*1[\n6. x ]*1,+inf[\n7. x ]-inf,*1]\n8. x [*1,+inf[\n"));
+    if (opp <= 0 or opp >= 9){
         error(4);
     }
     // input 
@@ -126,7 +134,7 @@ void interval_to_abs(){
     cmr_i = stoi(input("*1 = "));
     cpr_i = stoi(input("*2 = "));
     //check for errors 
-    if (cmr_i > cpr_i){
+    if (cmr_i > cpr_i and opp <5 ){
         error(7);
     }
     //calculate c and r 
@@ -150,5 +158,13 @@ void interval_to_abs(){
     } else if ( opp == 4 ){ 
         print("x <= "+cmr+" et x >= "+cpr + "\n");
         print("|x - "+ c + "| >= " + r + "\n");
+    } else if (opp == 5 ){
+    print("x < " + cmr + "\n");
+    } else if (opp == 6 ){
+        print("x > " + cmr + "\n");
+    } else if (opp == 7 ){
+        print("x <= " + cmr + "\n");
+    } else if (opp == 8 ){
+        print("x >= " + cmr + "\n");
     }
 }
