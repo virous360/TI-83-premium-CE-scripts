@@ -17,7 +17,7 @@
 
 ## VEC.py
 
-### error codes (vec.py)
+### error codes (vec.py) # not supported anymore
 
 - 0 : input is not int
 - 1 : menu input not between 1,4
