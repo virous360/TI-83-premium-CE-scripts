@@ -21,4 +21,5 @@
 
 - 0 : input is not int
 - 1 : menu input not between 1,4
-- 2 : menu 1 > inp not between 1,4
+- 2 : menu 1 -> inp not between 1,4
+- 3 : menu 2 -> inp not between 1,3
