@@ -52,10 +52,10 @@ void abs_to_interval_ineq(){
     // usual opperations 
     else if (opp == 1) {
         print ("x="+cmr+" or x="+cpr+" ; S={"+cmr+" ; "+cpr+"}\n");
-    } else if (opp == 2) {
+    } else if (opp == 3) {
         print("x ]"+cmr+";"+cpr+"[\n");
         print(cmr + " < x < " + cpr + "\n");
-    } else if (opp == 3) {
+    } else if (opp == 2) {
         print("x ]-inf;"+cmr+"[U]"+cpr+";+inf[\n");
         print("x < " + cmr + " et x > " + cpr + "\n");
     } else if (opp == 4) {
