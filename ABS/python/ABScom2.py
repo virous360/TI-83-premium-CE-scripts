@@ -4,7 +4,7 @@ def e(i):
 def f1():
  print("format : |x-c| =/>/</<=/>= r ")
  try:
-  c=int(input("c = "))
+  c=round(float(input("c = ")),2)
  except:
   e(0)
  opp=input("""1 : = 
@@ -20,10 +20,10 @@ def f1():
  if opp<=0 or opp>=6:
   e(2)
  try:
-  r=int(input("r = "))
+  r=round(float(input("r = ")),2)
  except:
   e(3)
- cmr=str(c - r);cpr=str(c + r);print("=====================")
+ cmr=str(round(c - r,2));cpr=str(round(c + r,2));print("=====================")
  if opp==2 and r<0:
   print("S = |R = ]-inf;+inf[")
  elif opp==5 and r<0:
@@ -58,14 +58,14 @@ def f2():
  if opp<=0 or opp>=9:
   e(4)
  try:
-  cmr=int(input("*1 = "))
+  cmr=round(float(input("*1 = ")),2)
  except:
   e(5)
  try:
-  cpr=int(input("*2="))
+  cpr=round(float(input("*2 = ")),2)
  except:
   e(6)
- c=str(int((cpr + cmr)/2));r=str(int(cpr - int(c)));cmr=str(cmr);cpr=str(cpr)
+ c=str(round(float((cpr + cmr)/2),2));r=str(round(float(cpr) - float(c),2));cmr=str(cmr);cpr=str(cpr)
  if opp==1 and cmr==cpr:
   print("S = phi = {}")
  elif opp==3 and cmr==cpr:
@@ -100,23 +100,23 @@ def f3():
 7. x ]-inf,*1] |8. x [*1,+inf[ 
 """)
  try:
-  opp=int(opp)
+  opp=round(float(opp),2)
  except:
   e(1)
  if opp<=0 or opp>=9:
   e(4)
  try:
-  cmr=int(input("*1 = "))
+  cmr=round(float(input("*1 = ")),2)
  except:
   e(5)
  try:
-  cpr=int(input("*2 = "))
+  cpr=round(float(input("*2 = ")),2)
  except:
   e(6)
  if opp<5:
   if cmr>cpr:
    e(7)
- c=str(int((cpr + cmr)/2));r=str(int(cpr - int(c)));cmr=str(cmr);cpr=str(cpr)
+ c=str(round((cpr + cmr)/2,2));r=str(round(cpr - float(c),2));cmr=str(cmr);cpr=str(cpr)
  if opp==1:
   print(cmr+" < x < "+cpr);print("|x - "+ c + "| < " + r)
  elif opp==2:
@@ -138,7 +138,7 @@ main1=input("""1. abs input
 3. interval input
 :""")
 try:
- main1=int(main1)
+ main1=round(float(main1),2)
 except:
  e(8)
 if main1<=0 or main1>=4:

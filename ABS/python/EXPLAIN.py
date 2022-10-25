@@ -1,6 +1,11 @@
-def f1():
+# fonction qui permet d'entrer une valeur absolue et avoir son equivalent sous forme d’inéquation et d'intervale
+#définir (def) fonction 1 (abs_input) : 
+def abs_input():
+# l'espace est nécessaire pour marquer toutes les commandes appartenant a cette fonction
+ # imprimer le format pour indiquer a l'utilisateur la forme de l'expression qui va etre calculer 
  print("format : |x-c| =/>/</<=/>= r ")
- c=int(input("c = "))
+ # le centre (c) est indiquer par l'utilisateur, il est ensuite convertie en float() pour 
+ c=round(float(input("c = ")),2)
  opp=input("""1 : = 
 2 : >
 3 : < 
@@ -8,8 +13,8 @@ def f1():
 5 : >=
 """)
  opp=int(opp)
- r=int(input("r = "))
- cmr=str(c - r);cpr=str(c + r);print("=====================")
+ r=round(float(input("r = ")),2)
+ cmr=str(round(c - r,2));cpr=str(round(c + r,2));print("=====================")
  if opp==2 and r<0:
   print("S = |R = ]-inf;+inf[")
  elif opp==5 and r<0:
@@ -38,9 +43,9 @@ def f2():
 7. x >= *1 |8. x <= *1
 """)
  opp=int(opp)
- cmr=int(input("*1 = "))
- cpr=int(input("*2="))
- c=str(int((cpr + cmr)/2));r=str(int(cpr - int(c)));cmr=str(cmr);cpr=str(cpr)
+ cmr=round(float(input("*1 = ")),2)
+ cpr=round(float(input("*2 = ")),2)
+ c=str(round(float((cpr + cmr)/2),2));r=str(round(float(cpr) - float(c),2));cmr=str(cmr);cpr=str(cpr)
  if opp==1 and cmr==cpr:
   print("S = phi = {}")
  elif opp==3 and cmr==cpr:
@@ -74,10 +79,10 @@ def f3():
 5. x ]-inf,*1[ |6. x ]*1,+inf[
 7. x ]-inf,*1] |8. x [*1,+inf[ 
 """)
- opp=int(opp)
- cmr=int(input("*1 = "))
- cpr=int(input("*2 = "))
- c=str(int((cpr + cmr)/2));r=str(int(cpr - int(c)));cmr=str(cmr);cpr=str(cpr)
+ opp=round(float(opp),2)
+ cmr=round(float(input("*1 = ")),2)
+ cpr=round(float(input("*2 = ")),2)
+ c=str(round((cpr + cmr)/2,2));r=str(round(cpr - float(c),2));cmr=str(cmr);cpr=str(cpr)
  if opp==1:
   print(cmr+" < x < "+cpr);print("|x - "+ c + "| < " + r)
  elif opp==2:
@@ -98,9 +103,9 @@ main1=input("""1. abs input
 2. ineq input
 3. interval input
 :""")
-main1=int(main1)
+main1=round(float(main1),2)
 if main1==1:
-  f1()
+ abs_input()
 elif main1==2:
  f2()
 elif main1==3:

@@ -20,18 +20,18 @@ void abs_to_interval_ineq(){
     //print the syntax of the absolute value 
     print("format : |x-c| =/>/</<=/>= r \n");
     //c=center ; input center as int (to add: check for int no not have errors) ;
-    int c;
+    float c;
     c = stoi(input("c = "));
     //opp=opperator ; the input is an int to symplify usage on calculators (to add: check for int from 1 to 5  no not have errors)
-    int opp;
+    float opp;
     opp = stoi(input("1 : =\n2 : >\n3 : <\n4 : <=\n5 : >=\n:"));
     if (opp <= 0 or opp >= 6){
         error(0);
     }
     // r=radius ; (to add: check for int no not have errors)
-    int r;
+    float r;
     r = stoi(input("r = "));
-    int cmr_i,cpr_i;
+    float cmr_i,cpr_i;
     cmr_i = c - r;
     cpr_i = c + r;
     string cmr, cpr;
@@ -68,14 +68,14 @@ void abs_to_interval_ineq(){
 }
 void ineq_to_abs(){
     //choose a syntax for the ineqation (int check + [1,4])
-    int opp;
+    float opp;
     opp = stoi(input("1. *1 < x < *2\n2. *1 <= x <= *2\n3. x < *1 et x > *2\n4. x <= *1 et x >= *2\n5. x > *1\n6. x < *1\n7. x >= *1\n8. x <= *1\n"));
     if (opp <= 0 or opp >= 9){
         error(4);
     }
     // *1 represents c - r and *2 represents c + r
-    int cmr_i = stoi(input("*1 = "));
-    int cpr_i = stoi(input("*2 = "));
+    float cmr_i = stoi(input("*1 = "));
+    float cpr_i = stoi(input("*2 = "));
     // if cmr > cpr than the inequation is wrong
     if (cmr_i > cpr_i and opp < 5){
         error(7);
@@ -124,13 +124,13 @@ void ineq_to_abs(){
 }
 void interval_to_abs(){
     //input opperator (syntax)
-    int opp;
+    float opp;
     opp = stoi(input("1. x ]*1;*2[\n2. x [*1;*2]\n3. x ]-inf;*1[U]*2;+inf[\n4. x ]-inf;*1]U[*2;+inf[\n5. x ]-inf,*1[\n6. x ]*1,+inf[\n7. x ]-inf,*1]\n8. x [*1,+inf[\n"));
     if (opp <= 0 or opp >= 9){
         error(4);
     }
     // input 
-    int cmr_i,cpr_i;
+    float cmr_i,cpr_i;
     cmr_i = stoi(input("*1 = "));
     cpr_i = stoi(input("*2 = "));
     //check for errors 
