@@ -2,38 +2,46 @@
 #définir (def) fonction 1 (abs_input) : 
 def abs_input():
 # l'espace est nécessaire pour marquer toutes les commandes appartenant a cette fonction
- # imprimer le format pour indiquer a l'utilisateur la forme de l'expression qui va etre calculer 
+ # imprimer le format pour indiquer a l'utilisateur la forme de l'expression qui va être calculer 
  print("format : |x-c| =/>/</<=/>= r ")
- # le centre (c) est indiquer par l'utilisateur, il est ensuite convertie en float() pour 
+ # le centre (c) est indiquer par l'utilisateur, il est ensuite convertie en float() pour être utilise en calcule. il est ensuite arrondie avec 1 nombre decimal apres la virgule (round(*,2))
  c=round(float(input("c = ")),2)
- opp=input("""1 : = 
+# on utilise opp comme menu qui permet de choisir un opérateur de calcule. convertie en int() pour simplifier la comparaison (NOTE: si ont ne convertie pas, quand on vas comparais on utilise str "1" au lieu de int "1"... )
+ opp=int(input("""1 : = 
 2 : >
 3 : < 
 4 : <=
 5 : >=
-""")
- opp=int(opp)
+"""))
+# définir le rayon; le rayon et le centre peuvent être utiliser pour le calcule d’après c-r et c+r
  r=round(float(input("r = ")),2)
- cmr=str(round(c - r,2));cpr=str(round(c + r,2));print("=====================")
- if opp==2 and r<0:
+# définir c-r et arrondir puis c + r 
+ cmr=str(round(c - r,2))
+ cpr=str(round(c + r,2))
+#imprimer un séparateur (non nécessaire)
+ print("=====================")
+#  exceptions :
+ if opp==2 and r<0: # si > et r<0 (la valeur absolue est toujours > qu'un nombre negative donc la solution est R)
   print("S = |R = ]-inf;+inf[")
- elif opp==5 and r<0:
+ elif opp==5 and r<0: # si >= et r<0 (la valeur absolue est toujours > qu'un nombre negative donc la solution est R)
   print("S = |R = ]-inf;+inf[")
- elif opp==3 and r<0:
+ elif opp==3 and r<0: # si abs<0 (abs negative) or une valeur absolue n'est jamais negative 
   print("S = phi = {}")
- elif opp==4 and r==0:
+ elif opp==4 and r==0: # <= 0 ; |x-c|<=0 ; c-r = c-0 = c ; et c+r = c+0 = c
   print ("x = "+str(c))
- elif opp==1:
+ elif opp==1: # =
   print ("x="+cmr+" or x="+cpr+" ; S={"+cmr+" ; "+cpr+"}")
- elif opp==3:
-  print("x ]"+cmr+";"+cpr+"[");print(cmr + " < x < " + cpr)
- elif opp==2:
+ elif opp==3: # >
+  print("x ]"+cmr+";"+cpr+"[")
+  print(cmr + " < x < " + cpr)
+ elif opp==2: # <
   print("x ]-inf;"+cmr+"[U]"+cpr+";+inf[");print("x < " + cmr + " et x > " + cpr)
- elif opp==4:
+ elif opp==4: # <=
   print("x ["+cmr+';'+cpr+']');print(cmr + " <= x <= " + cpr)
- elif opp==5:
+ elif opp==5: # >=
   print("x ]-inf;"+cmr+"]U["+cpr+";+inf[");print("x <= " + cmr + " et x >= " + cpr)
-def f2():
+#définir (def) fonction 2 (inéquation_input) : 
+def ineq_input():
  opp=input("""
 1. *1 < x < *2
 2. *1 <= x <= *2
@@ -107,6 +115,6 @@ main1=round(float(main1),2)
 if main1==1:
  abs_input()
 elif main1==2:
- f2()
+ ineq_input()
 elif main1==3:
  f3()
