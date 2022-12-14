@@ -2,7 +2,12 @@
 Cree par: Ali Naim
 Date : 10/12/2022
 version : 1.0
-len screen :32"""
+Notes:
+len screen :32
+coeficient lal x
+add fractions
+singular x
+sqrt x ?"""
 def main():
     print("--------------------------------")
     input1 = input("f(x) : ") # (x-c1)(-x+c2)... opp 0
