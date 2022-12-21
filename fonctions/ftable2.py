@@ -3,14 +3,13 @@ Cree par: Ali Naim
 Date : 10/12/2022
 version : 1.0
 Notes:
-len screen :32
-coeficient lal x
-add fractions
-singular x
-sqrt x ?"""
+len screen :32"""
+from math import sqrt,pow
 def main():
     print("--------------------------------")
-    input1 =  "(x-2)(-x+5)"# input("f(x) : ") ... opp 0
+    input1 = input("f(x) : ") # (x-c1)(-x+c2)... opp 0
+    if input1[-1] == ")":
+        input1 += "=0"
     #extract f(x) and opperator
     if input1[-3] == ")":
         opp = input1[-2]
@@ -25,32 +24,90 @@ def proccess_input(fx:str,opp:str):
     # split to list of [+-x +- c ]
     opperations = fx.split(")")
     opperations.pop()
-    opperations = [x[1:] for x in opperations]\
+    opperations = [x[1:] for x in opperations]
     # remove -x and switch opp
-    for opperation in opperations:
-        if opperation[0] != "x": #-x
-            # c * -1
-            c = float(opperation[2:]) * (-1)
-            #reassign
-            if c >= 0:
-                opperations[opperations.index(opperation)] = "x+"+str(c)
-            else:
-                opperations[opperations.index(opperation)] = "x"+str(c)
-            #change opp
-            if opp == ">": opp = "<"
-            elif opp == "<": opp = ">"
-            elif opp == ">=": opp = "<="
-            elif opp == "<=": opp = ">="
-    return opperations,opp
+    for i in range(len(opperations)):
+        opperation = opperations[i]
+        #reset power x^2 test
+        p = False
+        opperation_p=opperation.split("x")
+        if opperation_p[0] == "":
+            opperation_p[0] = "1"
+        c = opperation_p[1]
+        k = opperation_p[0]
+        #c and k (check S[sqrt] or ^2)
+        if "S" in c:
+            c = c.split("S")
+            if c[0] == "":
+                c[0] = "1"
+            for i1 in range(len(c)):
+                i = c[i1]
+                if "/" in i:
+                    i:str = i.split("/")
+                    c[i1] = float(i[0])/float(i[1])
+            c= float(c[0]) * sqrt(float(c[1]))
+        elif "^" in c:
+            c = c.split("^")
+            for i1 in range(len(c)):
+                i = c[i1]
+                if "/" in i:
+                    i:str = i.split("/")
+                    c[i1] = float(i[0])/float(i[1])
+            c = pow(float(c[0]),float(c[1]))
+        #/ 
+        if "/" in c :
+            c:str = c.split("/")
+            c = float(c[0])/float(c[1])
+        if "/" in k:
+            t = k.split("/")
+            if t[1][-1] == "^":
+                t[1] = t[1][:-1]
+                add = True
+            k = str(float(t[0])/float(t[1]))
+            if add:
+                k = k+"^"
 
+        # k^x ; ignore ^ ... c = c/k ... add opp with -c
+        if "^" in k:
+            k = float(k.split("^")[0])
+            p = True
+        # if k < 0 flip opp ... c = c/k
+        if float(k) < 0 :
+            opp = inv_opp(opp)
+        c = float(c)/float(k)
+        if p:
+            if c>0 :
+                print("math error")
+                exit()
+            c = sqrt(abs(c))
+        #if c > 0 add + 
+        if c >= 0:
+            c = "+"+str(c)
+        opperations[i] = "x"+str(c)
+        if p:
+            if float(c) != 0 :
+                opperations.append("x"+str(float(c)*-1))
+            else :
+                opperations.append("x+0.0")
+    return opperations,opp
+def inv_opp(opp):
+    if opp == ">": opp = "<"
+    elif opp == "<": opp = ">"
+    elif opp == ">=": opp = "<="
+    elif opp == "<=": opp = ">="
+    return opp
 def tableau_de_signes(opperations:list,opp:str):
     print("-"*32)
     # get the intersections for each intersection
     list_inter = []
     for x in opperations:
-        x = float(x[1:])*(-1)
+        # exeption x = -0
+        if float(x[1:]) != 0 :
+            x = float(x[1:])*(-1)
         # if ("+"+str(x) in list_inter) or (str(x) in list_inter):
         #     pass
+        else:
+            x = 0.0
         if x >= 0:
             list_inter.append("+"+str(x))
         else:
@@ -99,7 +156,6 @@ def tableau_de_signes(opperations:list,opp:str):
         print("({:6}) : {}".format(i,dic_sign[i]))
     print("Solution : {}".format("".join(final)))
     solve_x(table_head_elements,final,list_inter,opp)
-
 def multiply_signs(list_signs:list[str]):
     #get list by column instead of rows
     list_index = []
@@ -118,8 +174,7 @@ def multiply_signs(list_signs:list[str]):
             final.append("-")
         else:
             final.append("+")
-    return final
-    
+    return final    
 def solve_x(table_head_elements,final,list_inter,opp):
     final = list(final)
     # final.insert(0,final[0])
@@ -183,10 +238,5 @@ def solve_x(table_head_elements,final,list_inter,opp):
     for i in interval_list:
         print_str += "U"+i
     print(print_str)
-    
-
-
-                    
-
 
 main()
