@@ -1,3 +1,8 @@
+#made with chat gpt
+#not working
+
+
+
 def main():
   # Print a line with 32 dashes
   print("-" * 32)

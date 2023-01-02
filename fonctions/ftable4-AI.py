@@ -104,6 +104,7 @@ def proccess_term(x):
         c = c.split("/")
         c = float(c[0])/float(c[1])
     if "/" in k:
+        add = False
         t = k.split("/")
         if t[1][-1] == "^":
             t[1] = t[1][:-1]
