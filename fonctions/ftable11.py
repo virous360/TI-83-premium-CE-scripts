@@ -2,6 +2,7 @@
 from math import *
 print("-"*32)
 fx = input("f(x) : ")
+fx = fx.replace("X","x")
 if fx.endswith(")"):
     fx += "=0"
 fx = fx.split(")")
